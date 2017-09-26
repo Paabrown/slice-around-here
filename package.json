@@ -1,0 +1,34 @@
+{
+  "name": "slice-around-here",
+  "version": "1.0.0",
+  "description": "The app to tell you where to get a slice around here!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "execute": "node src/client/public/bundle.js",
+    "start": "npm run build -s && npm run execute -s"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Paabrown/slice-around-here.git"
+  },
+  "author": "Paul Brown",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Paabrown/slice-around-here/issues"
+  },
+  "homepage": "https://github.com/Paabrown/slice-around-here#readme",
+  "dependencies": {
+    "babel-preset-react": "^6.24.1",
+    "dotenv": "^4.0.0",
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2",
+    "webpack": "^3.6.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0"
+  }
+}
