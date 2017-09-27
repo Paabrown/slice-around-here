@@ -1,4 +1,4 @@
-### Node ###
+ ### Node ###
 
 # Logs
 logs
@@ -27,6 +27,8 @@ yarn-error.log*
 #Build generated
 dist/
 build/
+public/
+*/bundle.js
 
 
 ### SublimeText ###
@@ -81,3 +83,6 @@ $RECYCLE.BIN/
 .Trashes
 .VolumeIcon.icns
 .com.apple.timemachine.donotpresent
+
+#Keys
+config.js
