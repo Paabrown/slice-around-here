@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
+    "build": "webpack --watch",
     "execute": "node src/client/public/bundle.js",
-    "start": "npm run build -s && npm run execute -s"
+    "start": "npm run build -s"
   },
   "repository": {
     "type": "git",

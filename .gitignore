@@ -28,7 +28,7 @@ yarn-error.log*
 dist/
 build/
 public/
-*/bundle.js
+bundle.js
 
 
 ### SublimeText ###
