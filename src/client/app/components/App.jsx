@@ -8,8 +8,14 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-      currentRestaurants: props.exampleData
+      currentRestaurants: props.exampleData.businesses
+      showingInfoWindow: false,
+      activeMarker: {},
+      selectedPlace: {},
     }
+
+    this.onMarkerClick = this.onMarkerClick.bind(this);
+    this.onMapClicked = this.onMapClicked.bind(this);
   }
 
   render () {
@@ -17,7 +23,7 @@ class App extends React.Component {
     return (
       <div>
         <p> Find a Slice Around Here! </p>
-        <Container />
+        <Container restaurants={this.state.currentRestaurants}/>
         <SliceList currentRestaurants={this.state.currentRestaurants} />
       </div>
     );

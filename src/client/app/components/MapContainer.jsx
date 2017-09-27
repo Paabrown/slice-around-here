@@ -6,22 +6,37 @@ import React from 'react';
 export class MapContainer extends React.Component {
 
   render() {
+    console.log('edwdw', this.props.restaurants)
 
     const style = {
-      width: '100vw',
-      height: '100vh'
+      width: '50vw',
+      height: '50vh'
     }
 
     return (
+      <div>
         <Map 
           google={this.props.google}
           style={style}
-          zoom={14} 
+          zoom={15} 
           initialCenter={{
-            lat: 40.854885,
-            lng: -88.081807
+            lat: 40.750284,
+            lng: -73.976885
           }}
-        />
+        >
+          {this.props.restaurants.map(restaurant => {
+            console.log('at least this is running')
+
+            return (            
+            <Marker
+              title={restaurant.name}
+              name={restaurant.name}
+              position={{lat: restaurant.coordinates.latitude, lng: restaurant.coordinates.longitude}} />
+            )
+          }
+          )}
+        </Map>
+      </div>
     );
   }
 }
