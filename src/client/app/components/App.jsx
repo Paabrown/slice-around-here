@@ -1,6 +1,7 @@
 import React from 'react';
 import SliceList from './SliceList.jsx'
-import MapContainer from './GMap.jsx'
+import Map from './Map.jsx';
+import Container from './MapContainer.jsx'
 
 class App extends React.Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class App extends React.Component {
     return (
       <div>
         <p> Find a Slice Around Here! </p>
-        <MapContainer />
+        <Container />
         <SliceList currentRestaurants={this.state.currentRestaurants} />
       </div>
     );
