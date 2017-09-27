@@ -1,6 +1,6 @@
 import React from 'react';
 import SliceList from './SliceList.jsx'
-import GMap from './GMap.jsx'
+import MapContainer from './GMap.jsx'
 
 class App extends React.Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class App extends React.Component {
     return (
       <div>
         <p> Find a Slice Around Here! </p>
-        <GMap currentRestaurants={this.state.currentRestaurants} apiKey={this.props.apiKey}/>
+        <MapContainer />
         <SliceList currentRestaurants={this.state.currentRestaurants} />
       </div>
     );
