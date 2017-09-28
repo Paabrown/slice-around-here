@@ -17,17 +17,30 @@ class App extends React.Component {
   }
 
   componentDidMount () {
-    axios.get('/api/slices?lat=3.456&lng=5.321')
-    .then(results => {
-      console.log('this.state', this.state)
-      console.log('results', results);
+    var geo = navigator.geolocation;
+    console.log('geo', geo);
+    geo.getCurrentPosition((pos) => {
+      console.log('pos', pos);
+      const coords = pos.coords;
       this.setState({
-        currentRestaurants: results.data.businesses
-      });
-      console.log('get succeeded!!', this.state.currentRestaurants)
-    })
-    .catch(err => console.log('getting err', err))
+        currentLocation: {
+          lat: coords.latitude,
+          lng: coords.longitude
+        }
+      })
 
+      axios.get('/api/slices?lat=' + coords.latitude + '&lng=' + coords.longitude)
+      .then(results => {
+        console.log('this.state', this.state)
+        console.log('results', results);
+        this.setState({
+          currentRestaurants: results.data.businesses
+        });
+        console.log('get succeeded!!', this.state.currentRestaurants)
+      })
+      .catch(err => console.log('getting err', err))
+
+    })
   }
 
   render () {

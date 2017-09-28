@@ -51,6 +51,7 @@ export class MapContainer extends React.Component {
           zoom={16} 
           initialCenter={this.props.location}
           onClick={this.onMapClicked}
+          centerAroundCurrentLocation={true}
         >
 
           {this.props.restaurants.map((restaurant, ind) => {

@@ -9,20 +9,23 @@ router.get('/slices', function(req, res) {
   var queryData = url.parse(req.url, true).query;
   var lat = queryData.lat.toString()
   var lng = queryData.lng.toString()
+  console.log('data', queryData);
 
   var options = { method: 'GET',
   url: 'https://api.yelp.com/v3/businesses/search',
-  qs: 
-   { latitude: '40.750158',
-     longitude: '-73.977016',
-     categories: 'pizza',
-     term: 'slice',
-     radius: '800',
-     price: '1' },
-  headers: 
-   { 
-     authorization: 'Bearer ' + process.env.YELP
-   } 
+  qs: { 
+    latitude: lat,
+    longitude: lng,
+    categories: 'pizza',
+    term: 'slice',
+    radius: '500',
+    price: '1',
+    limit: '5',
+    sort: '1'
+  },
+  headers: { 
+    authorization: 'Bearer ' + process.env.YELP
+  } 
  };
 
   request(options, function (error, response, body) {
