@@ -1,7 +1,9 @@
 // from https://www.fullstackreact.com/articles/how-to-write-a-google-maps-react-component/
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-import apiKey from '../config.js'
+//import apiKey from '../config.js'
 import React from 'react';
+
+const apiKey = 'AIzaSyDB7n3we8-peVEuxRWfoJf97c9KbcYU2lw';
 
 export class MapContainer extends React.Component {
 
