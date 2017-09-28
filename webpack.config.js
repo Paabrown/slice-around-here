@@ -16,7 +16,7 @@ var config = {
       {
         test: /\.jsx?$/,
         include: [
-          path.join(__dirname, 'src/client/app')
+          path.join(__dirname, 'src/')
         ],
         loader: 'babel-loader'
       }
