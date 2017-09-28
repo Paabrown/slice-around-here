@@ -36,8 +36,6 @@ export class MapContainer extends React.Component {
   }
 
   render() {
-    console.log('edwdw', this.props.restaurants)
-
     const style = {
       width: '50vw',
       height: '50vh'
@@ -48,31 +46,41 @@ export class MapContainer extends React.Component {
         <Map 
           google={this.props.google}
           style={style}
-          zoom={15} 
-          initialCenter={{
-            lat: 40.750284,
-            lng: -73.976885
-          }}
+          zoom={16} 
+          initialCenter={this.props.location}
           onClick={this.onMapClicked}
         >
-          {this.props.restaurants.map(restaurant => {
-            console.log('at least this is running')
 
+          {this.props.restaurants.map((restaurant, ind) => {
             return (            
             <Marker
               onClick={this.onMarkerClick}
+              label={{text: ind.toString(), color:'black'}}
               title={restaurant.name}
               name={restaurant.name}
+              rating={restaurant.rating}
+              address={restaurant.location.display_address}
               position={{lat: restaurant.coordinates.latitude, lng: restaurant.coordinates.longitude}} />
             )
           }
           )}
+          <Marker
+              onClick={this.onMarkerClick}
+              name={'Current Location'}
+              icon={{
+                scaledSize: {height: 20, width: 20},
+                url: "http://bluedot.ca/wp-content/themes/dsf-blue-dot-campaign-theme/src/images/marker-circle.png"
+              }}
+              position={this.props.location} 
+          />
 
           <InfoWindow
             marker={this.state.activeMarker}
             visible={this.state.showingInfoWindow}>
               <div>
                 <h1>{this.state.selectedPlace.name}</h1>
+                <div>{this.state.selectedPlace.rating + ' stars'}</div>
+                <div>{this.state.selectedPlace.address}</div>
               </div>
           </InfoWindow>
         </Map>

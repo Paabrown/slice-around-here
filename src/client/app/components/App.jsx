@@ -8,7 +8,12 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-      currentRestaurants: props.exampleData.businesses
+      currentRestaurants: props.exampleData.businesses,
+      currentLocation: {
+        lat: 40.750284,
+        lng: -73.976885
+      },
+      google: window.google
     }
   }
 
@@ -17,7 +22,7 @@ class App extends React.Component {
     return (
       <div>
         <p> Find a Slice Around Here! </p>
-        <Container restaurants={this.state.currentRestaurants}/>
+        <Container restaurants={this.state.currentRestaurants} location={this.state.currentLocation} google={this.state.google}/>
         <SliceList currentRestaurants={this.state.currentRestaurants} />
       </div>
     );
