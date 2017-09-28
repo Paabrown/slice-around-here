@@ -9,13 +9,7 @@ class App extends React.Component {
 
     this.state = {
       currentRestaurants: props.exampleData.businesses
-      showingInfoWindow: false,
-      activeMarker: {},
-      selectedPlace: {},
     }
-
-    this.onMarkerClick = this.onMarkerClick.bind(this);
-    this.onMapClicked = this.onMapClicked.bind(this);
   }
 
   render () {
