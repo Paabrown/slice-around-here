@@ -1,46 +1,6 @@
 var exampleData = {
     "businesses": [
         {
-            "id": "two-boots-pizza-midtown-east-new-york",
-            "name": "Two Boots Pizza -  Midtown East",
-            "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/TL2eSkMLn9aX4WeieJRl4A/o.jpg",
-            "is_closed": false,
-            "url": "https://www.yelp.com/biz/two-boots-pizza-midtown-east-new-york?adjust_creative=myZax14Q2U-TxylPN9u58A&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=myZax14Q2U-TxylPN9u58A",
-            "review_count": 33,
-            "categories": [
-                {
-                    "alias": "pizza",
-                    "title": "Pizza"
-                }
-            ],
-            "rating": 3,
-            "coordinates": {
-                "latitude": 40.749599,
-                "longitude": -73.977104
-            },
-            "transactions": [
-                "delivery",
-                "pickup"
-            ],
-            "price": "$",
-            "location": {
-                "address1": "337 Lexington Ave",
-                "address2": "",
-                "address3": "",
-                "city": "New York",
-                "zip_code": "10016",
-                "country": "US",
-                "state": "NY",
-                "display_address": [
-                    "337 Lexington Ave",
-                    "New York, NY 10016"
-                ]
-            },
-            "phone": "+12125577992",
-            "display_phone": "(212) 557-7992",
-            "distance": 64.31099023664
-        },
-        {
             "id": "royal-pizza-new-york",
             "name": "Royal Pizza",
             "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/wxvODpCP3VdfmVtKne26og/o.jpg",

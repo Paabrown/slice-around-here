@@ -37,8 +37,10 @@ export class MapContainer extends React.Component {
 
   render() {
     const style = {
+      display: 'inline-block',
+      margin: '3px',
       width: '50vw',
-      height: '50vh'
+      height: '200px'
     }
 
     return (
@@ -67,6 +69,8 @@ export class MapContainer extends React.Component {
           <Marker
               onClick={this.onMarkerClick}
               name={'Current Location'}
+              rating={5}
+              address={'address=where u r now'}
               icon={{
                 scaledSize: {height: 20, width: 20},
                 url: "http://bluedot.ca/wp-content/themes/dsf-blue-dot-campaign-theme/src/images/marker-circle.png"
