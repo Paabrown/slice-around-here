@@ -11,7 +11,7 @@ const port = process.env.PORT
 
 app.use(parser.json());
 app.use('/scripts', express.static(path.resolve(__dirname, '../../node_modules')));
-app.use(express.static(path.resolve(__dirname, '../client/public')));
+app.use('', express.static(path.resolve(__dirname, '../client/public')));
 app.use('/api', router);
 
 app.listen(port);
