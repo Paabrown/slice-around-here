@@ -5,14 +5,21 @@ var BUILD_DIR = path.resolve(__dirname, 'src/client/public');
 var APP_DIR = path.resolve(__dirname, 'src/client/app');
 
 var config = {
-  entry: APP_DIR + '/./index.jsx',
+  context: path.join(__dirname, '/src/client/app'),
+  entry: './index.jsx',
   output: {
-    path: BUILD_DIR,
+    path: __dirname + '/src/client/public',
     filename: 'bundle.js'
   },
   module: {
-    rules: [
-      { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader' }
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        include: [
+          path.join(__dirname, 'src/client')
+        ],
+        loader: 'babel-loader'
+      }
     ]
   }
 };

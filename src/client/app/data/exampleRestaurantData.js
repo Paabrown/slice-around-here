@@ -1,46 +1,6 @@
 var exampleData = {
     "businesses": [
         {
-            "id": "royal-pizza-new-york",
-            "name": "Royal Pizza",
-            "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/wxvODpCP3VdfmVtKne26og/o.jpg",
-            "is_closed": false,
-            "url": "https://www.yelp.com/biz/royal-pizza-new-york?adjust_creative=myZax14Q2U-TxylPN9u58A&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=myZax14Q2U-TxylPN9u58A",
-            "review_count": 80,
-            "categories": [
-                {
-                    "alias": "pizza",
-                    "title": "Pizza"
-                }
-            ],
-            "rating": 4,
-            "coordinates": {
-                "latitude": 40.7488021850586,
-                "longitude": -73.9762878417969
-            },
-            "transactions": [
-                "delivery",
-                "pickup"
-            ],
-            "price": "$",
-            "location": {
-                "address1": "592 3rd Ave",
-                "address2": "",
-                "address3": "",
-                "city": "New York",
-                "zip_code": "10016",
-                "country": "US",
-                "state": "NY",
-                "display_address": [
-                    "592 3rd Ave",
-                    "New York, NY 10016"
-                ]
-            },
-            "phone": "+12126853619",
-            "display_phone": "(212) 685-3619",
-            "distance": 162.88206583649998
-        },
-        {
             "id": "rockys-number-ii-new-york",
             "name": "Rocky's Number II",
             "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/uvkCCC7IUYqcxxdMK_y08g/o.jpg",
