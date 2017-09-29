@@ -14,6 +14,7 @@ var path1 = path.join(__dirname, './../../node_modules')
 var path2 = path.join(__dirname, './../client/public')
 var path3 = path.join(__dirname, './../client/public/index.html')
 
+console.log('__dirname', __dirname)
 console.log('path1', path1)
 console.log('path2', path2)
 console.log('path3', path3)
