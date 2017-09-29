@@ -41,8 +41,8 @@ export class MapContainer extends React.Component {
     const style = {
       display: 'inline-block',
       margin: '3px',
-      width: '50vw',
-      height: '200px'
+      width: '75vw',
+      height: '500px'
     }
 
     return (

@@ -22,9 +22,6 @@ console.log('path3', path3)
 app.use('/scripts', express.static(path1));
 app.use(express.static(path2));
 app.use('/api', router);
-// app.get('/', (req, res) => {
-//   res.sendFile(path3)
-// })
 
 app.listen(port);
 
