@@ -11,7 +11,7 @@ const port = process.env.PORT
 app.use(parser.json());
 
 var path1 = path.join(__dirname, './../../node_modules')
-var path2 = path.join(__dirname, './../client')
+var path2 = path.join(__dirname, './../../')
 var path3 = path.join(__dirname, './../client/public/index.html')
 
 console.log('__dirname', __dirname)
