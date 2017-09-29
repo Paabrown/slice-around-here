@@ -15,13 +15,16 @@ class App extends React.Component {
         lng: -73.976885
       },
       showingInfoWindow: false,
-      activeMarker: {},
-      selectedPlace: {},
-      selectedRestaurant: props.exampleData.businesses[0]
+      selectedRestaurant: null,
+      currentCenter: {
+        lat: 40.750284,
+        lng: -73.976885
+      }
     }
 
     this.onMarkerClick = this.onMarkerClick.bind(this);
     this.onMapClicked = this.onMapClicked.bind(this);
+    this.onListClick = this.onListClick.bind(this);
   }
 
   // Event handlers
@@ -31,21 +34,37 @@ class App extends React.Component {
     console.log('marker', marker)
     console.log('e', e)
     this.setState({
-      selectedPlace: props,
-      activeMarker: marker,
       showingInfoWindow: true,
-      selectedRestaurant: props.restaurant
+      selectedRestaurant: props.restaurant,
+      currentCenter: {
+        lat: props.restaurant.coordinates.latitude,
+        lng: props.restaurant.coordinates.longitude
+      }
     });
     console.log('state is now', this.state);
   }
 
   onMapClicked (props) {
+    console.log('onMapClickedrunning')
+
     if (this.state.showingInfoWindow) {
       this.setState({
         showingInfoWindow: false,
-        activeMarker: null
+        selectedRestaurant: null
       })
     }
+  }
+
+  onListClick (restaurant) {
+    console.log('onlistclick running')
+    this.setState({
+      showingInfoWindow: true,
+      selectedRestaurant: restaurant,
+      currentCenter: {
+        lat: restaurant.coordinates.latitude,
+        lng: restaurant.coordinates.longitude
+      }
+    })
   }
 
   // LifeCycle Functions
@@ -57,6 +76,10 @@ class App extends React.Component {
       const coords = pos.coords;
       this.setState({
         currentLocation: {
+          lat: coords.latitude,
+          lng: coords.longitude
+        },
+        currentCenter: {
           lat: coords.latitude,
           lng: coords.longitude
         }
@@ -78,7 +101,6 @@ class App extends React.Component {
   }
 
   render () {
-
     return (
       <div>
         <div className={'apply'}>
@@ -88,16 +110,15 @@ class App extends React.Component {
             location={this.state.currentLocation}
             google={this.state.google}
             showingInfoWindow={this.state.showingInfoWindow}
-            activeMarker={this.state.activeMarker}
-            selectedPlace={this.state.selectedPlace}
             selectedRestaurant={this.state.selectedRestaurant}
+            currentCenter={this.state.currentCenter}
             onMarkerClick={this.onMarkerClick}
-            onMapClick={this.onMapClicked}
+            onMapClicked={this.onMapClicked}
           />
 
           <CurrentRestaurant selectedRestaurant={this.state.selectedRestaurant} />
 
-          <SliceList currentRestaurants={this.state.currentRestaurants} />
+          <SliceList currentRestaurants={this.state.currentRestaurants} onListClick={this.onListClick} />
         </div>
       </div>
     );

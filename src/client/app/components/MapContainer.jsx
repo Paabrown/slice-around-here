@@ -1,6 +1,4 @@
-// from https://www.fullstackreact.com/articles/how-to-write-a-google-maps-react-component/
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-//import apiKey from '../config.js'
 import React from 'react';
 
 const apiKey = 'AIzaSyDB7n3we8-peVEuxRWfoJf97c9KbcYU2lw';
@@ -20,13 +18,16 @@ export class MapContainer extends React.Component {
       height: '500px'
     }
 
+    const rest = this.props.selectedRestaurant
+    console.log('selres', rest)
+
     return (
       <div>
         <Map 
           google={this.props.google}
           style={style}
           zoom={16}
-          initialCenter={this.props.location}
+          center={this.props.currentCenter}
           onClick={this.props.onMapClicked}
           centerAroundCurrentLocation={true}
         >
@@ -34,8 +35,9 @@ export class MapContainer extends React.Component {
           {this.props.restaurants.map((restaurant, ind) => {
             return (            
               <Marker
+                key={ind + 1}
                 onClick={this.props.onMarkerClick}
-                label={{text: ind.toString(), color:'black'}}
+                label={{text: (ind + 1).toString(), color:'black'}}
                 restaurant={restaurant}
                 title={restaurant.name}
                 name={restaurant.name}
@@ -46,15 +48,16 @@ export class MapContainer extends React.Component {
             )
           }
           )}
+          
           <Marker
-                onClick={this.props.onMarkerClick}
+                onRecenter={this.props.onMarkerClick}
                 label={{text: 'S', color:'blue'}}
                 restaurant={this.props.selectedRestaurant}
-                title={this.props.selectedRestaurant.name}
-                name={this.props.selectedRestaurant.name}
-                rating={this.props.selectedRestaurant.rating}
-                address={this.props.selectedRestaurant.location.display_address}
-                position={{lat: this.props.selectedRestaurant.coordinates.latitude, lng: this.props.selectedRestaurant.coordinates.longitude}}
+                title={rest ? this.props.selectedRestaurant.name : null}
+                name={rest ? this.props.selectedRestaurant.name : null}
+                rating={rest ? this.props.selectedRestaurant.rating : null}
+                address={rest ? this.props.selectedRestaurant.location.display_address : null}
+                position={rest ? {lat: this.props.selectedRestaurant.coordinates.latitude, lng: this.props.selectedRestaurant.coordinates.longitude} : null}
                 zIndex={400}
           />
 
@@ -73,12 +76,13 @@ export class MapContainer extends React.Component {
           />
 
           <InfoWindow
-            marker={this.props.activeMarker}
+            position={this.props.currentCenter}
+            pixelOffset={'25px'}
             visible={this.props.showingInfoWindow}>
               <div>
-                <h1>{this.props.selectedPlace.name}</h1>
-                <div>{this.props.selectedPlace.rating + ' stars'}</div>
-                <div>{this.props.selectedPlace.address}</div>
+                <h1>{rest ? this.props.selectedRestaurant.name : null}</h1>
+                <div>{rest ? this.props.selectedRestaurant.rating + ' stars' : null}</div>
+                <div>{rest ? this.props.selectedRestaurant.location.display_address.join(', ') : null}</div>
               </div>
           </InfoWindow>
         </Map>
