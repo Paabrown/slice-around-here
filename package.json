@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "execute": "nodemon src/server/index.js",
+    "execute": "node src/server/index.js",
     "start": "npm run build && npm run execute -s"
   },
   "repository": {

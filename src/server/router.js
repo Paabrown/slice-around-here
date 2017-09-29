@@ -18,7 +18,7 @@ router.get('/slices', function(req, res) {
     longitude: lng,
     categories: 'pizza',
     term: 'slice',
-    radius: '500',
+    radius: '400',
     price: '1',
     limit: '5',
     sort: '1'

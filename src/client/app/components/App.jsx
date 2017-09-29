@@ -1,6 +1,7 @@
 import React from 'react';
 import SliceList from './SliceList.jsx'
 import Container from './MapContainer.jsx'
+import CurrentRestaurant from './CurrentRestaurant.jsx'
 import axios from 'axios'
 
 class App extends React.Component {
@@ -47,6 +48,7 @@ class App extends React.Component {
     }
   }
 
+  // LifeCycle Functions
   componentDidMount () {
     var geo = navigator.geolocation;
     console.log('geo', geo);
@@ -81,7 +83,7 @@ class App extends React.Component {
       <div>
         <div className={'apply'}>
           <p> Find a Slice Around Here! </p>
-          <Container className={'maply'}
+          <Container
             restaurants={this.state.currentRestaurants}
             location={this.state.currentLocation}
             google={this.state.google}
@@ -93,10 +95,9 @@ class App extends React.Component {
             onMapClick={this.onMapClicked}
           />
 
-          <SliceList
-            currentRestaurants={this.state.currentRestaurants} 
-            selectedRestaurant={this.state.selectedRestaurant}
-            />
+          <CurrentRestaurant selectedRestaurant={this.state.selectedRestaurant} />
+
+          <SliceList currentRestaurants={this.state.currentRestaurants} />
         </div>
       </div>
     );
