@@ -50,7 +50,7 @@ export class MapContainer extends React.Component {
         <Map 
           google={this.props.google}
           style={style}
-          zoom={16} 
+          zoom={16}
           initialCenter={this.props.location}
           onClick={this.onMapClicked}
           centerAroundCurrentLocation={true}
@@ -78,6 +78,8 @@ export class MapContainer extends React.Component {
                 scaledSize: {height: 20, width: 20},
                 url: "http://bluedot.ca/wp-content/themes/dsf-blue-dot-campaign-theme/src/images/marker-circle.png"
               }}
+              zIndex={9999999}
+              optimized={false}
               position={this.props.location} 
           />
 
