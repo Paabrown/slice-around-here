@@ -14,7 +14,7 @@ var SliceList = ({currentRestaurants, onListClick}) => {
       ) : null}
     </div>
   </div>
-  )
+  );
 }
 
 export default SliceList;
