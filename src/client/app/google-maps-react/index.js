@@ -1,5 +1,9 @@
 var path = require('path')
 
-console.log('dirname', __dirname);
+console.log('dirname!!!', __dirname);
 
-module.exports = require(path.join(__dirname, './dist/index.js'));
+var maps = path.join(__dirname, './dist/index.js')
+
+console.log('maps', maps);
+
+module.exports = require(maps);
