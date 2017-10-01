@@ -6,7 +6,7 @@ var maps = path.join(__dirname, './dist/index.js')
 
 console.log('maps', maps);
 
-var Everything = require('./dist/index.js');
+var Everything = require(maps);
 
 console.log('everything', Everything)
 
