@@ -1,40 +1,35 @@
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from '../google-maps-react/index.js';
 import React from 'react';
 
-console.log('Map', Map);
-
+// This google maps key is meant to be in index.html and does not need to be hidden
 const apiKey = 'AIzaSyDB7n3we8-peVEuxRWfoJf97c9KbcYU2lw';
 
 export class MapContainer extends React.Component {
 
   constructor(props) {
     super(props);
-    
   }
 
   render() {
     const style = {
-      display: 'inline-block',
-      margin: '3px',
       width: '75vw',
       height: '500px'
     }
 
-    const rest = this.props.selectedRestaurant
-    console.log('selres', rest)
+    const selectedRestaurant = this.props.selectedRestaurant
 
     return (
       <div>
-        <Map 
+        <Map
           google={this.props.google}
           style={style}
           zoom={16}
           center={this.props.currentCenter}
-          onClick={this.props.onMapClicked}
+          onClick={this.props.onMapClick}
           centerAroundCurrentLocation={true}
         >
 
-          {this.props.restaurants.map((restaurant, ind) => {
+          {this.props.restaurants ? this.props.restaurants.map((restaurant, ind) => {
             return (            
               <Marker
                 key={ind + 1}
@@ -49,17 +44,17 @@ export class MapContainer extends React.Component {
               />
             )
           }
-          )}
+          ) : null}
           
           <Marker
                 onRecenter={this.props.onMarkerClick}
                 label={{text: 'S', color:'blue'}}
                 restaurant={this.props.selectedRestaurant}
-                title={rest ? this.props.selectedRestaurant.name : null}
-                name={rest ? this.props.selectedRestaurant.name : null}
-                rating={rest ? this.props.selectedRestaurant.rating : null}
-                address={rest ? this.props.selectedRestaurant.location.display_address : null}
-                position={rest ? {lat: this.props.selectedRestaurant.coordinates.latitude, lng: this.props.selectedRestaurant.coordinates.longitude} : null}
+                title={selectedRestaurant ? this.props.selectedRestaurant.name : null}
+                name={selectedRestaurant ? this.props.selectedRestaurant.name : null}
+                rating={selectedRestaurant ? this.props.selectedRestaurant.rating : null}
+                address={selectedRestaurant ? this.props.selectedRestaurant.location.display_address : null}
+                position={selectedRestaurant ? {lat: this.props.selectedRestaurant.coordinates.latitude, lng: this.props.selectedRestaurant.coordinates.longitude} : null}
                 zIndex={400}
           />
 
@@ -67,14 +62,14 @@ export class MapContainer extends React.Component {
               onClick={this.props.onMarkerClick}
               name={'Current Location'}
               rating={5}
-              address={'address=where u r now'}
+              address={''}
               icon={{
                 scaledSize: {height: 20, width: 20},
-                url: "http://bluedot.ca/wp-content/themes/dsf-blue-dot-campaign-theme/src/images/marker-circle.png"
+                url: "/assets/marker-circle.png"/*"http://bluedot.ca/wp-content/themes/dsf-blue-dot-campaign-theme/src/images/marker-circle.png"*/
               }}
               zIndex={500}
               optimized={false}
-              position={this.props.location} 
+              position={this.props.userLocation} 
           />
 
           <InfoWindow
@@ -82,19 +77,20 @@ export class MapContainer extends React.Component {
             pixelOffset={{height: -30, width: 0}}
             visible={this.props.showingInfoWindow}>
               <div>
-                <h1>{rest ? this.props.selectedRestaurant.name : null}</h1>
-                <div>{rest ? this.props.selectedRestaurant.rating + ' stars' : null}</div>
-                <div>{rest ? this.props.selectedRestaurant.location.display_address.join(', ') : null}</div>
+                <h1>{selectedRestaurant ? this.props.selectedRestaurant.name : null}</h1>
+                <div>{selectedRestaurant ? this.props.selectedRestaurant.rating + ' stars' : null}</div>
+                <div>{selectedRestaurant ? this.props.selectedRestaurant.location.display_address.join(', ') : null}</div>
               </div>
           </InfoWindow>
+
         </Map>
       </div>
     );
   }
 }
 
-var thing = GoogleApiWrapper({
+var Container = GoogleApiWrapper({
   apiKey: apiKey
 })(MapContainer)
 
-export default thing;
+export default Container;

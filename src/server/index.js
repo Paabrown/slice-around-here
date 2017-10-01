@@ -10,12 +10,12 @@ const port = process.env.PORT
 
 app.use(parser.json());
 
-var path1 = path.join(__dirname, './../../node_modules')
-var path2 = path.join(__dirname, './../client/public')
-var path3 = path.join(__dirname, './../client/public/index.html')
+var modulesPath = path.join(__dirname, './../../node_modules')
+var publicPath = path.join(__dirname, './../client/public')
 
-app.use('/scripts', express.static(path1));
-app.use(express.static(path2));
+app.use('/scripts', express.static(modulesPath));
+app.use(express.static(publicPath));
+
 app.use('/api', router);
 
 app.listen(port);
