@@ -17,6 +17,7 @@
  .refresh {
   width: 75px;
   border-radius: 5px;
+  margin: 20px;
  }
 
  .maply {
@@ -25,8 +26,9 @@
   overflow: scroll;
  }
 
- h1 {
+ .restaurant-title {
   font-size: 12px;
+  font-weight: bold;
  }
 
  .current {
@@ -42,7 +44,7 @@
 
 .sub-heading {
   font-size: 20px;
-  font-style: bold;
+  font-weight: bold;
   margin-top: 25px;
 }
 

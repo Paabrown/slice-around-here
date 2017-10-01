@@ -9,7 +9,7 @@ var SliceList = ({currentRestaurants, onListClick}) => {
     <div className={'sub-heading'}>Slices around here</div>
     <div className={'restaurant-list'}>
       {currentRestaurants ? currentRestaurants.map((restaurant, ind) => (
-        <SliceListEntry restaurant={restaurant} onListClick={onListClick} />
+        <SliceListEntry  key={restaurant.id} restaurant={restaurant} onListClick={onListClick} />
         )
       ) : null}
     </div>

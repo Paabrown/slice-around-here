@@ -32,7 +32,7 @@ export class MapContainer extends React.Component {
           {this.props.restaurants ? this.props.restaurants.map((restaurant, ind) => {
             return (            
               <Marker
-                key={ind + 1}
+                key={restaurant.id + '-marker'}
                 onClick={this.props.onMarkerClick}
                 label={{text: (ind + 1).toString(), color:'black'}}
                 restaurant={restaurant}
@@ -77,12 +77,11 @@ export class MapContainer extends React.Component {
             pixelOffset={{height: -30, width: 0}}
             visible={this.props.showingInfoWindow}>
               <div>
-                <h1>{selectedRestaurant ? this.props.selectedRestaurant.name : null}</h1>
+                <div className={'restaurant-title'}>{selectedRestaurant ? this.props.selectedRestaurant.name : null}</div>
                 <div>{selectedRestaurant ? this.props.selectedRestaurant.rating + ' stars' : null}</div>
                 <div>{selectedRestaurant ? this.props.selectedRestaurant.location.display_address.join(', ') : null}</div>
               </div>
           </InfoWindow>
-
         </Map>
       </div>
     );

@@ -42,10 +42,10 @@ class App extends React.Component {
     return (
       <div>
         <div className={'app-container'}>
-          <p className={'heading'}> 
-            <h1 className="tagline">Find a Slice Around Here!</h1>
+          <div className={'heading'}> 
+            <h2 className="tagline">Find a Slice Around Here!</h2>
             <button className={'refresh'} onClick={this.updateLocationAndRestaurants}>Refresh</button>
-          </p>
+          </div>
           <Container
             google={this.state.google}
             restaurants={this.state.currentRestaurants}
