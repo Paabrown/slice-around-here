@@ -136,7 +136,8 @@
         }
 
         var iw = this.infowindow = new google.maps.InfoWindow({
-          content: ''
+          content: '',
+          pixelOffset: this.props.pixelOffset    
         });
 
         google.maps.event.addListener(iw, 'closeclick', this.onClose.bind(this));

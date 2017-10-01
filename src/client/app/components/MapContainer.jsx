@@ -79,7 +79,7 @@ export class MapContainer extends React.Component {
 
           <InfoWindow
             position={this.props.currentCenter}
-            pixelOffset={'25px'}
+            pixelOffset={{height: -30, width: 0}}
             visible={this.props.showingInfoWindow}>
               <div>
                 <h1>{rest ? this.props.selectedRestaurant.name : null}</h1>
