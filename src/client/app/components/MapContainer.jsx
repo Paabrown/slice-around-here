@@ -49,7 +49,8 @@ export class MapContainer extends React.Component {
           <Marker
                 onRecenter={this.props.onMarkerClick}
                 label={{text: 'S', color:'blue'}}
-                restaurant={this.props.selectedRestaurant}
+                visible={(!!selectedRestaurant)}
+                restaurant={selectedRestaurant}
                 title={selectedRestaurant ? this.props.selectedRestaurant.name : null}
                 name={selectedRestaurant ? this.props.selectedRestaurant.name : null}
                 rating={selectedRestaurant ? this.props.selectedRestaurant.rating : null}

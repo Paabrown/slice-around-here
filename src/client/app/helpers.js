@@ -13,7 +13,8 @@ module.exports = function() {
       currentCenter: {
         lat: coords.latitude,
         lng: coords.longitude
-      }
+      },
+      showingInfoWindow: false
     });
 
     axios.get('/api/slices', {
@@ -26,7 +27,7 @@ module.exports = function() {
       this.setState({
         currentRestaurants: results.data.businesses,
         selectedRestaurant: null
-      });
+      }, () => console.log(this.state));
     })
     .catch(err => console.log('GET to server error:', err))
   })

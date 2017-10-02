@@ -109,7 +109,7 @@
     }, {
       key: 'componentDidUpdate',
       value: function componentDidUpdate(prevProps) {
-        if (this.props.map !== prevProps.map || this.props.position !== prevProps.position || this.props.icon !== prevProps.icon) {
+        if (this.props.map !== prevProps.map || this.props.position !== prevProps.position || this.props.icon !== prevProps.icon || this.props.visible !== prevProps.visible) {
           if (this.marker) {
             this.marker.setMap(null);
           }
@@ -138,7 +138,8 @@
             draggable = _props.draggable,
             title = _props.title,
             optimized = _props.optimized,
-            zIndex = _props.zIndex;
+            zIndex = _props.zIndex,
+            visible = _props.visible;
 
         if (!google) {
           return null;
@@ -157,7 +158,8 @@
           title: title,
           draggable: draggable,
           zIndex: zIndex,
-          optimized: optimized
+          optimized: optimized,
+          visible: visible
         };
         this.marker = new google.maps.Marker(pref);
 
