@@ -17,10 +17,10 @@ module.exports.onMapClick = function(props) {
 
   if (this.state.showingInfoWindow) {
     this.setState({
-      showingInfoWindow: false,
-      selectedRestaurant: null
+      showingInfoWindow: false
     })
   }
+
 }
 
 module.exports.onListClick = function(restaurant) {
@@ -34,4 +34,18 @@ module.exports.onListClick = function(restaurant) {
       lng: restaurant.coordinates.longitude
     }
   })
+}
+
+module.exports.recenter = function() {
+  this.setState({
+    currentCenter: {lat: null, lng: null}
+  }, () => {
+    this.setState({
+      currentCenter: this.state.userLocation,
+      showingInfoWindow: false,
+      selectedRestaurant: null,
+    });
+  });
+
+  console.log('this.state', this.state);
 }

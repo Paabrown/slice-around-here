@@ -29,6 +29,7 @@ class App extends React.Component {
     this.onMarkerClick = handlers.onMarkerClick.bind(this);
     this.onMapClick = handlers.onMapClick.bind(this);
     this.onListClick = handlers.onListClick.bind(this);
+    this.recenter = handlers.recenter.bind(this);
 
     this.updateLocationAndRestaurants = updateLocationAndRestaurants.bind(this);
   }
@@ -45,6 +46,7 @@ class App extends React.Component {
           <div className={'heading'}> 
             <h2 className="tagline">Find a Slice Around Here!</h2>
             <button className={'refresh'} onClick={this.updateLocationAndRestaurants}>Refresh</button>
+            <button className={'refresh'} onClick={this.recenter}>Recenter</button>
           </div>
           <Container
             google={this.state.google}
