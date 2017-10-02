@@ -3,7 +3,7 @@ import React from 'react';
 const SliceListEntry = ({restaurant, onListClick}) => {
 
   return (
-    <button className={'list-entry'} onTouchStart={() => onListClick(restaurant)} onClick={() => onListClick(restaurant)} >
+    <button className={'list-entry'} onClick={() => onListClick(restaurant)} >
       <div>Name: {restaurant.name}</div>
       <div>Rating: {restaurant.rating}</div>
       <div>Address: {restaurant.location.display_address.join(', ')}</div>
