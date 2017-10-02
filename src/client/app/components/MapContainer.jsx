@@ -88,7 +88,7 @@ export class MapContainer extends React.Component {
   }
 }
 
-var Container = GoogleApiWrapper({
+const Container = GoogleApiWrapper({
   apiKey: apiKey
 })(MapContainer)
 

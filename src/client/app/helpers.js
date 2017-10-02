@@ -1,10 +1,9 @@
 import axios from 'axios';
 
 module.exports = function() {
-  var geo = navigator.geolocation;
+  const geo = navigator.geolocation;
 
   geo.getCurrentPosition((pos) => {
-    console.log('pos is', pos)
     const coords = pos.coords;
     this.setState({
       userLocation: {
@@ -24,7 +23,6 @@ module.exports = function() {
       }
     })
     .then(results => {
-      console.log('results', results)
       this.setState({
         currentRestaurants: results.data.businesses,
         selectedRestaurant: null

@@ -2,7 +2,7 @@ import React from 'react';
 
 import SliceListEntry from './SliceListEntry.jsx';
 
-var SliceList = ({currentRestaurants, onListClick}) => {
+const SliceList = ({currentRestaurants, onListClick}) => {
 
   return (
   <div className={'restaurant-container'}>

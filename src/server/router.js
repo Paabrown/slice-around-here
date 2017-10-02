@@ -5,9 +5,9 @@ const getSliceLocations = require('./requester')
 
 //  /api/restaurants?lat=323&long=3322
 router.get('/slices', function(req, res) {
-  var queryData = url.parse(req.url, true).query;
-  var lat = queryData.lat.toString()
-  var lng = queryData.lng.toString()
+  const queryData = url.parse(req.url, true).query;
+  const lat = queryData.lat.toString()
+  const lng = queryData.lng.toString()
 
   getSliceLocations(lat, lng, function (error, response, body) {
     if (error) {throw new Error(error)};

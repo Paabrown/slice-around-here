@@ -1,6 +1,6 @@
 import React from 'react';
 
-var CurrentRestaurant = ({selectedRestaurant}) => (
+const CurrentRestaurant = ({selectedRestaurant}) => (
   <div className={'current'} > 
     <div>Selected Slice</div>
     <br/>

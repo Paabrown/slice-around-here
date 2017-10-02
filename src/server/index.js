@@ -10,8 +10,8 @@ const port = process.env.PORT
 
 app.use(parser.json());
 
-var modulesPath = path.join(__dirname, './../../node_modules')
-var publicPath = path.join(__dirname, './../client/public')
+const modulesPath = path.join(__dirname, './../../node_modules')
+const publicPath = path.join(__dirname, './../client/public')
 
 app.use('/scripts', express.static(modulesPath));
 app.use(express.static(publicPath));

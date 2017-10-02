@@ -1,7 +1,7 @@
 const request = require('request')
 
 const getSliceLocations = function(lat, lng, cb) {
-  var options = { method: 'GET',
+  const options = { method: 'GET',
   url: 'https://api.yelp.com/v3/businesses/search',
   qs: { 
     latitude: lat,

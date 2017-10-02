@@ -1,4 +1,4 @@
-var exampleData = {
+const exampleData = {
     "businesses": [
         {
             "id": "rockys-number-ii-new-york",

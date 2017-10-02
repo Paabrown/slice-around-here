@@ -1,6 +1,6 @@
 import React from 'react';
 
-var SliceListEntry = ({restaurant, onListClick}) => {
+const SliceListEntry = ({restaurant, onListClick}) => {
 
   return (
     <button className={'list-entry'} onTouchStart={() => onListClick(restaurant)} onClick={() => onListClick(restaurant)} >
