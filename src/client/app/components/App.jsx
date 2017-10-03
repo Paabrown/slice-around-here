@@ -47,6 +47,10 @@ class App extends React.Component {
             <h2 className="tagline">Find a Slice Around Here!</h2>
             <button className={'refresh'} onClick={this.updateLocationAndRestaurants}>Refresh</button>
             <button className={'refresh'} onClick={this.recenter}>Recenter</button>
+            <select className={'select-radius'}>
+              <option value="0.5">0.5m</option>
+              <option value="0.5">0.5m</option>
+            </select>
           </div>
           <Container
             google={this.state.google}
